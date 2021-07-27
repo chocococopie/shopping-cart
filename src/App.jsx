@@ -1,16 +1,20 @@
-
-import './App.css'
+import "./App.css";
+import Layout from "./components/Layout";
+import Home from "./pages/home";
+import Detail from "./pages/detail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
-
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path=":slug" element={<Detail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
